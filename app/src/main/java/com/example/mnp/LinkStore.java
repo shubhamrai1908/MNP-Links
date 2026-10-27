@@ -13,8 +13,9 @@ import java.util.List;
 final class LinkStore {
     private static final String PREFERENCES = "mnp_links";
     private static final String LINKS_KEY = "links";
-    private static final String OLD_ZONE_TWO_URL = "https://121.241.253.44/NPCWebGUI/login.do";
-    private static final String ZONE_TWO_URL = "https://49.249.27.250/NPCWebGUI/login.do";
+    private static final String LEGACY_ZONE_TWO_URL = "https://121.241.253.44/NPCWebGUI/login.do";
+    private static final String PREVIOUS_ZONE_TWO_URL = "https://49.249.27.250/NPCWebGUI/login.do";
+    private static final String ZONE_TWO_URL = "https://14.195.103.250/NPCWebGUI/#/login";
 
     private final SharedPreferences preferences;
 
@@ -39,7 +40,8 @@ final class LinkStore {
                 if (title.trim().isEmpty()) {
                     throw new JSONException("A saved link has an empty title");
                 }
-                if ("MNP Zone 2".equals(title) && OLD_ZONE_TWO_URL.equals(url)) {
+                if ("MNP Zone 2".equals(title)
+                        && (LEGACY_ZONE_TWO_URL.equals(url) || PREVIOUS_ZONE_TWO_URL.equals(url))) {
                     url = ZONE_TWO_URL;
                     zoneTwoUpdated = true;
                 }
