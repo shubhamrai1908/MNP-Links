@@ -1,0 +1,11 @@
+# Android/Gradle build output
+.gradle/
+**/build/
+local.properties
+
+# Local IDE state
+.idea/
+*.iml
+
+# Original APK supplied for analysis; do not publish it with the source
+/MNP.apk
